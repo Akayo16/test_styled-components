@@ -10,13 +10,10 @@ const ConsoleStyled = styled.textarea`
     height: 80vh;
     background: ${({background}) => background || 'transparent'};
     font-size: 24px;
-    color: ${({color}) => color || '#fff'};
+    color: ${({color,theme}) => color || theme.color.primary};
     border: none;
     resize: none;
-
-    &:focus {
-        outline: none;
-    }
+    outline: none;
 `;
 
 const Console = ({color, ...props}) => {
@@ -25,9 +22,9 @@ const Console = ({color, ...props}) => {
 
     const onKeyPress = e => {
 
-        if(e.charKey == 13) {
+        if(e.charCode === 13) {
 
-            setLines(...lines, 'C/user/test_Styled-components>')
+            setLines([...lines, 'C/user/test>']);
 
         }
 
@@ -37,17 +34,17 @@ const Console = ({color, ...props}) => {
 
         <Flex>
 
-            <Flex flexDirection = {'column'}>
+            <Flex flexDirection={'column'} >
 
-                {lines.map(line => {
-                    return <Line color={color} key = {line} >
+                {lines.map((line, index) => {
+                    return <Line color={color} key = {index} >
                         {line}
                     </Line>
                 })}
 
             </Flex>
 
-            <ConsoleStyled color={color} {...props} margin={'0px 10px'} />
+            <ConsoleStyled onKeyPress={onKeyPress} color={color} {...props} margin={'0px 10px'} />
 
         </Flex>
 

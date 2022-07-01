@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledLine = styled.div`
-    /* position: ${({position}) => position || 'relative'}; */
-    color: ${({color}) => color || "white"};
+    color: ${({color, theme}) => color || theme.color.primary};
     font-size: 24px;
 `
 

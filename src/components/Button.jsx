@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 
 const StyledButton = styled.button`
@@ -11,13 +11,13 @@ const StyledButton = styled.button`
     align-self: ${({align}) => align || 'stretch'};
 
     ${props => props.primary && css`
-        color: ${({color}) => color || 'white'};
-        background: ${({background}) => background || 'white'};
+        color: ${({color, theme}) => color || theme.color.primary};
+        background: ${({background, theme}) => background || theme.color.primary};
     `}
 
     ${props => props.outlined && css`
-        border: 1px solid ${({color}) => color || 'white'};
-        color: ${({color}) => color || 'white'};
+        border: 1px solid ${({color,theme}) => color || theme.color.primary};
+        color: ${({color, theme}) => color || theme.color.primary};
         background: transparent;
     `}
 `;

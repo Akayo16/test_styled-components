@@ -21,7 +21,7 @@ const App = () => {
         
         <Flex alignItems={'center'} justifyContent={'center'} >
 
-            <Title color = {'green'}>
+            <Title>
                 App
             </Title>
 
@@ -32,11 +32,11 @@ const App = () => {
             margin={'10px 0px'}
         >
 
-            <Console color={'green'} />
+            <Console />
 
             <Button
-            align={'flex-end'}
-            color = {'green'}
+                align={'flex-end'}
+                color = {'green'}
                 outlined
             >
                 Send
